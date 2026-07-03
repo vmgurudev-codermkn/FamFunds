@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1" />
+<title>FamFunds</title>
+<meta name="theme-color" content="#7A1F2B" />
+<meta name="description" content="Family funds ledger — rent, income and expenses." />
+
+<!-- PWA -->
+<link rel="manifest" href="manifest.json" />
+<link rel="apple-touch-icon" href="icons/icon-192.png" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="FamFunds" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet" />
+
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- ===================== LOGIN SCREEN ===================== -->
+<div id="login-screen">
+  <div class="cover">
+    <div class="cover-title">FamFunds</div>
+    <div class="cover-sub">Family Ledger</div>
+
+    <div class="pin-dots">
+      <span class="pin-dot"></span>
+      <span class="pin-dot"></span>
+      <span class="pin-dot"></span>
+      <span class="pin-dot"></span>
+    </div>
+
+    <div class="pin-pad">
+      <button class="pin-key" data-val="1">1</button>
+      <button class="pin-key" data-val="2">2</button>
+      <button class="pin-key" data-val="3">3</button>
+      <button class="pin-key" data-val="4">4</button>
+      <button class="pin-key" data-val="5">5</button>
+      <button class="pin-key" data-val="6">6</button>
+      <button class="pin-key" data-val="7">7</button>
+      <button class="pin-key" data-val="8">8</button>
+      <button class="pin-key" data-val="9">9</button>
+      <button class="pin-key wide" data-val="clear">C</button>
+      <button class="pin-key" data-val="0">0</button>
+      <button class="pin-key wide" data-val="back">⌫</button>
+    </div>
+
+    <div id="login-error"></div>
+  </div>
+</div>
+
+<!-- ===================== APP SHELL ===================== -->
+<div id="app">
+  <header class="topbar">
+    <div class="brand-row">
+      <div class="brand">FamFunds</div>
+    </div>
+    <div class="month-nav">
+      <button id="prev-month" aria-label="Previous month">‹</button>
+      <div class="month-label" id="month-label">—</div>
+      <button id="next-month" aria-label="Next month">›</button>
+    </div>
+  </header>
+
+  <main>
+    <section id="tab-dashboard" class="tab-panel active"></section>
+    <section id="tab-rent" class="tab-panel"></section>
+    <section id="tab-income" class="tab-panel"></section>
+    <section id="tab-expenses" class="tab-panel"></section>
+    <section id="tab-more" class="tab-panel"></section>
+  </main>
+
+  <nav class="bottom-nav">
+    <button data-tab="dashboard" class="active">
+      <span class="icon">📖</span><span>Dashboard</span>
+    </button>
+    <button data-tab="rent">
+      <span class="icon">🏠</span><span>Rent</span>
+    </button>
+    <button data-tab="income">
+      <span class="icon">💰</span><span>Income</span>
+    </button>
+    <button data-tab="expenses">
+      <span class="icon">🧾</span><span>Expenses</span>
+    </button>
+    <button data-tab="more">
+      <span class="icon">⚙️</span><span>More</span>
+    </button>
+  </nav>
+</div>
+
+<!-- ===================== MODAL ===================== -->
+<div class="modal-backdrop" id="modal-backdrop">
+  <div class="modal">
+    <div class="modal-title" id="modal-title">Title</div>
+    <div id="modal-body"></div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="config.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
